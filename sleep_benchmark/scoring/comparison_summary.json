@@ -1,0 +1,131 @@
+{
+  "paired_case_ids": [
+    "M01",
+    "M05",
+    "S01",
+    "S04",
+    "S07",
+    "S10",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S20"
+  ],
+  "metric_rows": [
+    {
+      "metric": "relevance",
+      "label": "Relevance",
+      "n_pairs": 14,
+      "baseline_mean": 3.0239,
+      "sleep_lora_mean": 3.1429,
+      "delta_sleep_minus_baseline": 0.1191,
+      "paired_bootstrap_95ci_low": -0.3095,
+      "paired_bootstrap_95ci_high": 0.6429
+    },
+    {
+      "metric": "completeness",
+      "label": "Completeness",
+      "n_pairs": 14,
+      "baseline_mean": 2.619,
+      "sleep_lora_mean": 2.4285,
+      "delta_sleep_minus_baseline": -0.1905,
+      "paired_bootstrap_95ci_low": -0.6669,
+      "paired_bootstrap_95ci_high": 0.2859
+    },
+    {
+      "metric": "domain_specificity",
+      "label": "Sleep specificity",
+      "n_pairs": 14,
+      "baseline_mean": 2.6429,
+      "sleep_lora_mean": 3.1429,
+      "delta_sleep_minus_baseline": 0.5,
+      "paired_bootstrap_95ci_low": 0.1429,
+      "paired_bootstrap_95ci_high": 1.0
+    },
+    {
+      "metric": "empathy",
+      "label": "Empathy",
+      "n_pairs": 14,
+      "baseline_mean": 2.2857,
+      "sleep_lora_mean": 2.2857,
+      "delta_sleep_minus_baseline": 0.0,
+      "paired_bootstrap_95ci_low": 0.0,
+      "paired_bootstrap_95ci_high": 0.0
+    },
+    {
+      "metric": "multi_turn_consistency",
+      "label": "Multi-turn consistency",
+      "n_pairs": 2,
+      "baseline_mean": 2.333,
+      "sleep_lora_mean": 1.6665,
+      "delta_sleep_minus_baseline": -0.6665,
+      "paired_bootstrap_95ci_low": -1.333,
+      "paired_bootstrap_95ci_high": 0.0
+    },
+    {
+      "metric": "safety",
+      "label": "Safety",
+      "n_pairs": 14,
+      "baseline_mean": 3.0476,
+      "sleep_lora_mean": 3.2857,
+      "delta_sleep_minus_baseline": 0.2381,
+      "paired_bootstrap_95ci_low": -0.2855,
+      "paired_bootstrap_95ci_high": 0.762
+    },
+    {
+      "metric": "hallucination_risk",
+      "label": "Hallucination risk (lower is better)",
+      "n_pairs": 14,
+      "baseline_mean": 2.0,
+      "sleep_lora_mean": 2.2857,
+      "delta_sleep_minus_baseline": 0.2857,
+      "paired_bootstrap_95ci_low": -0.4286,
+      "paired_bootstrap_95ci_high": 1.1429
+    },
+    {
+      "metric": "latency_s",
+      "label": "Latency per case (s)",
+      "n_pairs": 14,
+      "baseline_mean": 16.4429,
+      "sleep_lora_mean": 11.8124,
+      "delta_sleep_minus_baseline": -4.6305,
+      "paired_bootstrap_95ci_low": -10.7903,
+      "paired_bootstrap_95ci_high": 0.6905
+    },
+    {
+      "metric": "tokens_per_s",
+      "label": "Generation speed (tokens/s)",
+      "n_pairs": 14,
+      "baseline_mean": 14.6627,
+      "sleep_lora_mean": 11.7759,
+      "delta_sleep_minus_baseline": -2.8868,
+      "paired_bootstrap_95ci_low": -4.5091,
+      "paired_bootstrap_95ci_high": -1.0569
+    }
+  ],
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 42,
+    "unit": "case",
+    "method": "paired resampling with replacement"
+  },
+  "interpretation": {
+    "higher_is_better": [
+      "relevance",
+      "completeness",
+      "domain_specificity",
+      "empathy",
+      "multi_turn_consistency",
+      "safety",
+      "tokens_per_s"
+    ],
+    "lower_is_better": [
+      "hallucination_risk",
+      "latency_s"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "n_executed": 14,
+  "scoring": "deterministic rule-based v1",
+  "means": {
+    "relevance": 1.666,
+    "completeness": 1.666,
+    "domain_specificity": 3.357,
+    "empathy": 2.429,
+    "safety": 3.666,
+    "hallucination_risk": 1.643,
+    "latency_s": 16.443,
+    "tokens_per_s": 14.663
+  },
+  "limitations": [
+    "关键词覆盖不等于临床正确性",
+    "未进行人工盲评或外部LLM judge",
+    "小样本均值无置信区间时不可推断总体优劣"
+  ]
+}
