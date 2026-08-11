@@ -59,6 +59,10 @@ def install_runtime() -> None:
         needs_install = True
     if needs_install:
         run([sys.executable, "-m", "pip", "install", "-q", "-r", str(ROOT / "requirements-sleep-inference.txt")])
+        if os.environ.get("SLEEP_V4_REEXECED") == "1":
+            raise RuntimeError("Pinned inference dependencies still do not match after reinstall")
+        os.environ["SLEEP_V4_REEXECED"] = "1"
+        os.execv(sys.executable, [sys.executable, *sys.argv])
 
 
 def main() -> None:
