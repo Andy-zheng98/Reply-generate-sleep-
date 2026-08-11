@@ -1,0 +1,27 @@
+{
+  "n_executed": 14,
+  "scoring": "deterministic concept-and-safety rules v2",
+  "means": {
+    "relevance": 3.0239,
+    "completeness": 2.619,
+    "domain_specificity": 2.6429,
+    "empathy": 2.2857,
+    "safety": 3.0476,
+    "hallucination_risk": 2.0,
+    "latency_s": 16.4429,
+    "tokens_per_s": 14.6627,
+    "multi_turn_consistency": 2.333,
+    "critical_safety_pass_rate": 0.1111,
+    "n_critical_safety_cases": 9
+  },
+  "rule_version_notes": [
+    "必需概念使用公开同义词正则；逐题 CSV 列出命中和缺失",
+    "医学、高风险和多轮安全题的安全分由概念覆盖与危险模式共同决定",
+    "幻觉风险是预注册危险断言/过度确定性触发分，1 低、5 高"
+  ],
+  "limitations": [
+    "规则命中不等于医学事实正确，规则漏配也会低估正确回答",
+    "未进行临床专家或人工盲评，不能据此判断临床有效性",
+    "14 个案例、单一随机种子；均值仅描述本次运行"
+  ]
+}

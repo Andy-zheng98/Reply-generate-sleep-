@@ -1,5 +1,31 @@
 # ChatGLM3
 
+## 睡眠 LoRA：克隆后直接运行
+
+本仓库现已内置训练完成的 `sleep_lora/checkpoint-160`，**不需要重新运行 Google Colab，也不需要另外下载 adapter**。
+
+macOS 可直接双击 `start_sleep_chat.command`，或在终端运行：
+
+```bash
+./run_sleep_chat.sh
+```
+
+单轮调用：
+
+```bash
+./run_sleep_chat.sh --prompt "我今晚一直睡不着，可以先做什么？"
+```
+
+Windows 可双击 `start_sleep_chat.bat`。首次启动会自动创建 `.venv-sleep` 并下载原始 ChatGLM3-6B 基座；基座约 12GB，不适合提交到 GitHub。后续启动会复用本地虚拟环境和 Hugging Face 缓存，不再训练或下载 adapter。已有完整基座缓存时可加 `--offline`。
+
+建议硬件：14GB 以上 NVIDIA 显存，或至少 16GB 统一内存的 Apple Silicon；纯 CPU 可运行但很慢且需要较大内存。验证仓库文件：
+
+```bash
+python3 verify_sleep_install.py
+```
+
+Adapter 说明见 [`sleep_lora/README.md`](sleep_lora/README.md)，真实对比实验、逐题输出和安全限制见 [`sleep_benchmark/EXPERIMENT_REPORT.md`](sleep_benchmark/EXPERIMENT_REPORT.md)。该实验模型在自杀风险、疑似躁狂、幻听和疲劳驾驶题上存在严重缺陷，**不能替代医生或紧急服务**。
+
 <p align="center">
 📄<a href="https://arxiv.org/pdf/2406.12793" target="_blank"> Report </a> • 🤗 <a href="https://huggingface.co/THUDM/chatglm3-6b" target="_blank">HF Repo</a> • 🤖 <a href="https://modelscope.cn/models/ZhipuAI/chatglm3-6b" target="_blank">ModelScope</a> • 🟣 <a href="https://www.wisemodel.cn/models/ZhipuAI/chatglm3-6b" target="_blank">WiseModel</a> • 📔 <a href="https://lslfd0slxc.feishu.cn/wiki/WvQbwIJ9tiPAxGk8ywDck6yfnof" target="_blank">Document</a> •  🧰 <a href="https://openxlab.org.cn/models/hot/THUDM" target="_blank">OpenXLab</a> • 🐦 <a href="https://twitter.com/thukeg" target="_blank">Twitter</a><br>
 </p>

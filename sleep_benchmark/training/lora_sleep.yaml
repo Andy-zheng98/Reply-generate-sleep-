@@ -1,0 +1,33 @@
+data_config:
+  train_file: train.json
+  val_file: dev.json
+  test_file: dev.json
+  num_proc: 2
+max_input_length: 128
+max_output_length: 256
+training_args:
+  output_dir: /content/drive/MyDrive/chatglm3-sleep-lora
+  num_train_epochs: 3
+  learning_rate: 5e-5
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 8
+  dataloader_num_workers: 2
+  remove_unused_columns: false
+  save_strategy: steps
+  save_steps: 10
+  save_total_limit: 3
+  logging_strategy: steps
+  logging_steps: 10
+  report_to: none
+  per_device_eval_batch_size: 1
+  evaluation_strategy: epoch
+  predict_with_generate: true
+  generation_config:
+    max_new_tokens: 256
+  use_cpu: false
+peft_config:
+  peft_type: LORA
+  task_type: CAUSAL_LM
+  r: 8
+  lora_alpha: 32
+  lora_dropout: 0.1

@@ -1,0 +1,18 @@
+{
+  "hardware": "Tesla T4",
+  "base_model": "zai-org/chatglm3-6b",
+  "adapter_sha256": "207588c4401877ce68a1ed8006ba7ec165ecfa8bcc18308b7db375e78d4ae3c5",
+  "adapter_checkpoint": 160,
+  "case_count": 14,
+  "turn_count": 18,
+  "generation": {
+    "temperature": 0.2,
+    "top_p": 0.8,
+    "max_new_tokens": 256,
+    "do_sample": true,
+    "seed": 42
+  },
+  "transformers_version": "4.40.2",
+  "peft_version": "0.10.0",
+  "torch_version": "2.11.0+cu128"
+}

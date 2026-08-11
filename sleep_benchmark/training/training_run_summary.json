@@ -1,0 +1,82 @@
+{
+  "execution_status": "executed",
+  "execution_date": "2026-08-11 Asia/Shanghai",
+  "hardware": "Google Colab Tesla T4",
+  "source_repository": "https://github.com/Andy-zheng98/Reply-generate-sleep-.git",
+  "source_commit": "ed9aee2a626d825db5890a6016424105ac1a9f77",
+  "base_model": "zai-org/chatglm3-6b",
+  "method": "PEFT LoRA",
+  "data": {
+    "train_examples": 440,
+    "dev_examples": 60,
+    "evaluation_examples_per_epoch": 43
+  },
+  "configuration": {
+    "num_train_epochs": 3,
+    "max_steps": 165,
+    "learning_rate": 0.00005,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "max_input_length": 128,
+    "max_output_length": 256,
+    "lora_r": 8,
+    "lora_alpha": 32,
+    "lora_dropout": 0.1,
+    "target_modules": [
+      "query_key_value"
+    ]
+  },
+  "observed_training_completion": {
+    "completed_165_steps": true,
+    "completion_marker": "TRAINING_COMPLETE",
+    "saved_checkpoints": [
+      140,
+      150,
+      160
+    ],
+    "note": "The trainer completed step 165, but save_steps=10, so checkpoint-160 is the newest persisted adapter and the model tested here."
+  },
+  "tested_checkpoint": {
+    "step": 160,
+    "epoch": 2.909090909090909,
+    "adapter_file_size_bytes": 7807744,
+    "adapter_sha256": "207588c4401877ce68a1ed8006ba7ec165ecfa8bcc18308b7db375e78d4ae3c5",
+    "lora_tensor_count": 56,
+    "lora_layers": 28,
+    "tensor_shapes": {
+      "lora_A": [
+        8,
+        4096
+      ],
+      "lora_B": [
+        4608,
+        8
+      ]
+    }
+  },
+  "checkpoint_160_logged_evaluation": [
+    {
+      "epoch": 1,
+      "step": 55,
+      "rouge_1": 31.701169767441865,
+      "rouge_2": 9.797486046511628,
+      "rouge_l": 22.260672093023256,
+      "bleu_4": 0.04427786313460027
+    },
+    {
+      "epoch": 2,
+      "step": 110,
+      "rouge_1": 33.23363720930232,
+      "rouge_2": 11.185599999999999,
+      "rouge_l": 24.67366279069768,
+      "bleu_4": 0.05366093836833437
+    }
+  ],
+  "adapter_config_provenance": "Reconstructed from the repository training YAML and verified by successfully loading all 56 recovered LoRA tensors with PEFT 0.10.0 for the executed inference run.",
+  "excluded_from_adapter_archive": [
+    "optimizer.pt",
+    "scheduler.pt",
+    "rng_state.pth"
+  ],
+  "exclusion_reason": "These training-resume files are unnecessary for PEFT inference; the interrupted archive transfer did not contain a complete optimizer.pt."
+}

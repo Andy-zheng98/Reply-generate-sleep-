@@ -1,4 +1,7 @@
 __pycache__
+.venv-sleep/
+.cache/
+*.pyc
 
 # finetune_demo: generated & downloaded files
 finetune_demo/output

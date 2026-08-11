@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="940" viewBox="0 0 1500 940">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#20242B}.title{font-size:30px;font-weight:700}.panel{font-size:22px;font-weight:700}.label{font-size:17px}.small{font-size:14px;fill:#5B6470}</style>
+<text x="55" y="55" class="title">Sleep Dialogue Benchmark — FP16 paired run on Tesla T4</text>
+<text x="55" y="88" class="label" fill="#5B6470">Same base model, prompts, seed, and generation settings</text>
+<text x="55" y="155" class="panel">Quality and safety (higher is better)</text>
+<line x1="305.0" y1="180" x2="305.0" y2="700" stroke="#D9DEE7"/>
+<text x="305.0" y="730" class="small" text-anchor="middle">0</text>
+<line x1="429.0" y1="180" x2="429.0" y2="700" stroke="#D9DEE7"/>
+<text x="429.0" y="730" class="small" text-anchor="middle">1</text>
+<line x1="553.0" y1="180" x2="553.0" y2="700" stroke="#D9DEE7"/>
+<text x="553.0" y="730" class="small" text-anchor="middle">2</text>
+<line x1="677.0" y1="180" x2="677.0" y2="700" stroke="#D9DEE7"/>
+<text x="677.0" y="730" class="small" text-anchor="middle">3</text>
+<line x1="801.0" y1="180" x2="801.0" y2="700" stroke="#D9DEE7"/>
+<text x="801.0" y="730" class="small" text-anchor="middle">4</text>
+<line x1="925.0" y1="180" x2="925.0" y2="700" stroke="#D9DEE7"/>
+<text x="925.0" y="730" class="small" text-anchor="middle">5</text>
+<text x="55" y="226" class="label">Relevance</text>
+<rect x="305" y="200" width="375.0" height="28" fill="#4C78A8"/>
+<rect x="305" y="236" width="389.7" height="28" fill="#F58518"/>
+<text x="688.0" y="220" class="small">3.02</text>
+<text x="702.7" y="256" class="small">3.14</text>
+<text x="55" y="330" class="label">Completeness</text>
+<rect x="305" y="304" width="324.8" height="28" fill="#4C78A8"/>
+<rect x="305" y="340" width="301.1" height="28" fill="#F58518"/>
+<text x="637.8" y="324" class="small">2.62</text>
+<text x="614.1" y="360" class="small">2.43</text>
+<text x="55" y="434" class="label">Sleep specificity</text>
+<rect x="305" y="408" width="327.7" height="28" fill="#4C78A8"/>
+<rect x="305" y="444" width="389.7" height="28" fill="#F58518"/>
+<text x="640.7" y="428" class="small">2.64</text>
+<text x="702.7" y="464" class="small">3.14</text>
+<text x="55" y="538" class="label">Empathy</text>
+<rect x="305" y="512" width="283.4" height="28" fill="#4C78A8"/>
+<rect x="305" y="548" width="283.4" height="28" fill="#F58518"/>
+<text x="596.4" y="532" class="small">2.29</text>
+<text x="596.4" y="568" class="small">2.29</text>
+<text x="55" y="642" class="label">Safety</text>
+<rect x="305" y="616" width="377.9" height="28" fill="#4C78A8"/>
+<rect x="305" y="652" width="407.4" height="28" fill="#F58518"/>
+<text x="690.9" y="636" class="small">3.05</text>
+<text x="720.4" y="672" class="small">3.29</text>
+<text x="1010" y="155" class="panel">Hallucination risk</text>
+<text x="1010" y="180" class="small">lower is better</text>
+<text x="1010" y="210" class="small">ChatGLM3 FP16</text>
+<rect x="1010" y="220" width="350" height="20" fill="#EEF1F5"/>
+<rect x="1010" y="220" width="140.0" height="20" fill="#4C78A8"/>
+<text x="1370" y="236" class="small">2.00</text>
+<text x="1010" y="270" class="small">Sleep LoRA</text>
+<rect x="1010" y="280" width="350" height="20" fill="#EEF1F5"/>
+<rect x="1010" y="280" width="160.0" height="20" fill="#F58518"/>
+<text x="1370" y="296" class="small">2.29</text>
+<text x="1010" y="400" class="panel">Latency per case</text>
+<text x="1010" y="425" class="small">seconds; lower is better</text>
+<text x="1010" y="455" class="small">ChatGLM3 FP16</text>
+<rect x="1010" y="465" width="350" height="20" fill="#EEF1F5"/>
+<rect x="1010" y="465" width="280.0" height="20" fill="#4C78A8"/>
+<text x="1370" y="481" class="small">16.44</text>
+<text x="1010" y="515" class="small">Sleep LoRA</text>
+<rect x="1010" y="525" width="350" height="20" fill="#EEF1F5"/>
+<rect x="1010" y="525" width="201.1" height="20" fill="#F58518"/>
+<text x="1370" y="541" class="small">11.81</text>
+<text x="1010" y="645" class="panel">Generation speed</text>
+<text x="1010" y="670" class="small">tokens/s; higher is better</text>
+<text x="1010" y="700" class="small">ChatGLM3 FP16</text>
+<rect x="1010" y="710" width="350" height="20" fill="#EEF1F5"/>
+<rect x="1010" y="710" width="280.0" height="20" fill="#4C78A8"/>
+<text x="1370" y="726" class="small">14.66</text>
+<text x="1010" y="760" class="small">Sleep LoRA</text>
+<rect x="1010" y="770" width="350" height="20" fill="#EEF1F5"/>
+<rect x="1010" y="770" width="224.9" height="20" fill="#F58518"/>
+<text x="1370" y="786" class="small">11.78</text>
+<rect x="55" y="865" width="23" height="23" fill="#4C78A8"/><text x="90" y="883" class="label">ChatGLM3-6B FP16</text>
+<rect x="320" y="865" width="23" height="23" fill="#F58518"/><text x="355" y="883" class="label">Sleep LoRA checkpoint-160</text>
+<text x="1010" y="883" class="small">Rule scorer v2 · n=14 cases</text>
+</svg>

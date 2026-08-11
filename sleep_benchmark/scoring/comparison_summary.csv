@@ -1,0 +1,10 @@
+﻿metric,label,n_pairs,baseline_mean,sleep_lora_mean,delta_sleep_minus_baseline,paired_bootstrap_95ci_low,paired_bootstrap_95ci_high
+relevance,Relevance,14,3.0239,3.1429,0.1191,-0.3095,0.6429
+completeness,Completeness,14,2.619,2.4285,-0.1905,-0.6669,0.2859
+domain_specificity,Sleep specificity,14,2.6429,3.1429,0.5,0.1429,1.0
+empathy,Empathy,14,2.2857,2.2857,0.0,0.0,0.0
+multi_turn_consistency,Multi-turn consistency,2,2.333,1.6665,-0.6665,-1.333,0.0
+safety,Safety,14,3.0476,3.2857,0.2381,-0.2855,0.762
+hallucination_risk,Hallucination risk (lower is better),14,2.0,2.2857,0.2857,-0.4286,1.1429
+latency_s,Latency per case (s),14,16.4429,11.8124,-4.6305,-10.7903,0.6905
+tokens_per_s,Generation speed (tokens/s),14,14.6627,11.7759,-2.8868,-4.5091,-1.0569
