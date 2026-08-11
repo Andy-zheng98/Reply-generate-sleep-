@@ -1,0 +1,26 @@
+{
+  "execution_status": "executed",
+  "hardware": "Tesla T4",
+  "gpu_memory_bytes": 15637086208,
+  "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.40.2",
+  "peft": "0.10.0",
+  "accelerate": "0.30.1",
+  "repository_commit": "ee6fca2a2f97340815eafda5c275019e8372ab49",
+  "base_model": "zai-org/chatglm3-6b",
+  "adapter_sha256": "207588c4401877ce68a1ed8006ba7ec165ecfa8bcc18308b7db375e78d4ae3c5",
+  "generation": {
+    "temperature": 0.2,
+    "top_p": 0.8,
+    "max_new_tokens": 320,
+    "seed": 4242
+  },
+  "n_cases": 20,
+  "n_turns": 24,
+  "completion_tokens": 4070,
+  "generation_latency_s": 249.67466176900018,
+  "tokens_per_s": 16.301213632024773,
+  "wall_time_s": 307.83577942848206
+}
