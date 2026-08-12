@@ -1,0 +1,34 @@
+name: Enable manual sleep checks
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/apply-sleep-workflow-dispatch.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable and run full sleep check workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('.github/workflows/sleep-bundle-smoke.yml')
+          text = path.read_text(encoding='utf-8')
+          marker = 'on:\n  push:'
+          assert marker in text
+          path.write_text(text.replace(marker, 'on:\n  workflow_dispatch:\n  push:', 1), encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/sleep-bundle-smoke.yml
+          git commit -m "Allow manual full sleep checks"
+          git push origin HEAD:main
