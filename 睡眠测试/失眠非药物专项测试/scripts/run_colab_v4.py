@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
@@ -42,6 +43,28 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def preflight() -> tuple[list[dict], str]:
+    adapter_dir = ROOT / "sleep_lora" / "checkpoint-160"
+    adapter_file = adapter_dir / "adapter_model.safetensors"
+    required = [adapter_dir / "adapter_config.json", adapter_file, BENCHMARK_PATH, ROOT / "requirements-sleep-inference.txt"]
+    missing = [str(path) for path in required if not path.is_file()]
+    if missing:
+        raise FileNotFoundError("Missing required files: " + ", ".join(missing))
+    actual_hash = sha256(adapter_file)
+    assert actual_hash == EXPECTED_ADAPTER_SHA256, (actual_hash, EXPECTED_ADAPTER_SHA256)
+    config = json.loads((adapter_dir / "adapter_config.json").read_text(encoding="utf-8"))
+    assert config["base_model_name_or_path"] == BASE_MODEL
+    cases = [
+        json.loads(line)
+        for line in BENCHMARK_PATH.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    assert len(cases) == 20
+    assert sum(len(case["turns"]) for case in cases) == 24
+    print(f"PREFLIGHT_OK cases={len(cases)} turns=24 adapter_sha256={actual_hash}")
+    return cases, actual_hash
+
+
 def install_runtime() -> None:
     required = {"transformers": "4.40.2", "peft": "0.10.0", "accelerate": "0.30.1"}
     needs_install = False
@@ -66,6 +89,13 @@ def install_runtime() -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check-only", action="store_true", help="只校验仓库文件、adapter 和测试集，不下载或加载模型")
+    args = parser.parse_args()
+    cases, actual_hash = preflight()
+    if args.check_only:
+        return
+
     started = time.time()
     install_runtime()
 
@@ -78,15 +108,6 @@ def main() -> None:
 
     assert torch.cuda.is_available(), "CUDA GPU runtime is required"
     adapter_dir = ROOT / "sleep_lora" / "checkpoint-160"
-    adapter_file = adapter_dir / "adapter_model.safetensors"
-    actual_hash = sha256(adapter_file)
-    assert actual_hash == EXPECTED_ADAPTER_SHA256, (actual_hash, EXPECTED_ADAPTER_SHA256)
-    cases = [
-        json.loads(line)
-        for line in BENCHMARK_PATH.read_text(encoding="utf-8").splitlines()
-        if line.strip()
-    ]
-    assert len(cases) == 20
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
     print(f"Loading {BASE_MODEL} + verified Sleep LoRA on {torch.cuda.get_device_name(0)}", flush=True)

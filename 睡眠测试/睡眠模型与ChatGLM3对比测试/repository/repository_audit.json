@@ -1,25 +1,46 @@
 {
-  "repository_commit": "ed9aee2a626d825db5890a6016424105ac1a9f77",
+  "audit_scope": "current repository files",
   "base_model": "zai-org/chatglm3-6b",
-  "training_method": "PEFT LoRA, r=8, alpha=32, dropout=0.1; 3 epochs; lr=5e-5; input 128; output 256",
+  "training_method": {
+    "peft_type": "LORA",
+    "r": 8,
+    "lora_alpha": 32,
+    "lora_dropout": 0.1,
+    "target_modules": [
+      "query_key_value"
+    ]
+  },
   "train_entry": "packages/chatglm3_colab_lora_package.zip::finetune_hf.py",
-  "inference_entry": "packages/chatglm3_colab_lora_package.zip::inference_hf.py",
+  "inference_entries": [
+    "sleep_chat.py",
+    "睡眠测试/睡眠模型与ChatGLM3对比测试/scripts/run_colab_fp16_pair.py",
+    "睡眠测试/失眠非药物专项测试/scripts/run_colab_v4.py"
+  ],
   "domain_changes": [
     "睡眠.ipynb",
     "LoRA training package",
-    "500-example sleep dialogue dataset (440 train/60 dev)"
+    "500-example sleep dialogue dataset (440 train/60 dev)",
+    "bundled checkpoint-160 adapter",
+    "two reproducible sleep test suites"
   ],
-  "weight_files_in_repository": [],
-  "adapter_available": false,
-  "notebook_training_evidence": {
-    "completed_165_steps": true,
-    "train_runtime_seconds": 2850.1492,
-    "checkpoint_mentions": [
-      "checkpoint-140",
-      "checkpoint-150",
-      "checkpoint-160"
-    ],
-    "eval_epoch3_rouge1": 35.1372511627907
-  },
-  "critical_finding": "Notebook records successful training and Drive checkpoints, but adapter files are absent from GitHub; the sleep model cannot be independently loaded from this repository alone."
+  "package_files": [
+    "CHATGLM3_CODE_LICENSE",
+    "README.md",
+    "configs/lora_sleep.yaml",
+    "data/dev.json",
+    "data/train.json",
+    "dataset_stats.json",
+    "finetune_hf.py",
+    "inference_hf.py",
+    "requirements-single-gpu.txt",
+    "run_train.sh",
+    "verify_dataset.py"
+  ],
+  "adapter_available": true,
+  "adapter_sha256": "207588c4401877ce68a1ed8006ba7ec165ecfa8bcc18308b7db375e78d4ae3c5",
+  "adapter_files": [
+    "sleep_lora/checkpoint-160/adapter_config.json",
+    "sleep_lora/checkpoint-160/adapter_model.safetensors"
+  ],
+  "critical_finding": "The trained checkpoint-160 adapter is bundled in the repository and passes its recorded SHA-256 check. The ChatGLM3 base model is still downloaded separately at runtime."
 }

@@ -81,11 +81,23 @@ GitHub 仓库本身确实没有可加载的 adapter：审计未发现 `adapter_m
 
 以下评分命令需先进入实验目录：`cd "睡眠测试/睡眠模型与ChatGLM3对比测试"`。
 
-训练入口：
+训练入口保存在 `packages/chatglm3_colab_lora_package.zip`。如需重新训练，先解压该包，再在解压目录运行：
 
-`python finetune_hf.py data zai-org/chatglm3-6b lora_sleep.yaml`
+`python finetune_hf.py data zai-org/chatglm3-6b configs/lora_sleep.yaml`
 
 同条件评测脚本：`scripts/run_colab_fp16_pair.py`。它依次生成 FP16 baseline 和 LoRA 输出，记录逐轮延迟、completion token 数与 tokens/s。
+
+在 Colab 克隆仓库、选择 GPU 后，可直接运行，无需手工组装 `eval_bundle`：
+
+```bash
+!python "Reply-generate-sleep-/睡眠测试/睡眠模型与ChatGLM3对比测试/scripts/run_colab_fp16_pair.py"
+```
+
+不下载模型、只确认入口和必需文件可用：
+
+```bash
+python "睡眠测试/睡眠模型与ChatGLM3对比测试/scripts/run_colab_fp16_pair.py" --check-only
+```
 
 评分与汇总：
 
@@ -97,7 +109,7 @@ python scripts/make_comparison.py --baseline scoring/baseline_fp16_item_scores_v
 
 ## 文件结构
 
-- `../sleep_lora/checkpoint-160/`：可直接供 PEFT 推理使用的 adapter、配置、trainer state。
+- `../../sleep_lora/checkpoint-160/`：可直接供 PEFT 推理使用的 adapter、配置、trainer state。
 - `benchmark/`：26 题数据与泄漏检查报告。
 - `results/`：FP16 baseline、睡眠 LoRA 和本地量化 baseline 的原始逐题回答。
 - `scoring/`：v1/v2 逐题评分、汇总 CSV/JSON、分类汇总和 PNG/SVG 图。

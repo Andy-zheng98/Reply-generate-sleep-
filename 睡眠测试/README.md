@@ -13,3 +13,14 @@
 目录：[`失眠非药物专项测试`](失眠非药物专项测试/)
 
 测试睡眠环境、音乐与声音、体操与运动、呼吸训练、多轮个体约束、长期失眠和高风险安全边界，共 20 个案例、24 个用户轮次。
+
+## 一次运行全部检查
+
+从仓库根目录执行：
+
+```bash
+python -m pip install -r requirements-sleep-checks.txt
+python verify_all_sleep_checks.py
+```
+
+它会检查 adapter 完整性、Python 入口、两套测试的 GPU 预检、评分结果复现、泄漏报告复现、图表生成和运行元数据。成功时最后显示 `ALL_SLEEP_CHECKS_OK`。
