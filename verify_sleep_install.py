@@ -42,9 +42,9 @@ def main() -> None:
     tensor_keys = [key for key in header if key != "__metadata__"]
     assert len(tensor_keys) == 56
 
-    benchmark = read_jsonl(ROOT / "sleep_benchmark" / "benchmark" / "benchmark.jsonl")
-    baseline = read_jsonl(ROOT / "sleep_benchmark" / "results" / "baseline_fp16_raw.jsonl")
-    sleep = read_jsonl(ROOT / "sleep_benchmark" / "results" / "sleep_lora_raw.jsonl")
+    benchmark = read_jsonl(ROOT / "睡眠测试" / "睡眠模型与ChatGLM3对比测试" / "benchmark" / "benchmark.jsonl")
+    baseline = read_jsonl(ROOT / "睡眠测试" / "睡眠模型与ChatGLM3对比测试" / "results" / "baseline_fp16_raw.jsonl")
+    sleep = read_jsonl(ROOT / "睡眠测试" / "睡眠模型与ChatGLM3对比测试" / "results" / "sleep_lora_raw.jsonl")
     assert len(benchmark) == 26 and sum(len(row["turns"]) for row in benchmark) == 38
     assert len(baseline) == len(sleep) == 14
     assert [row["id"] for row in baseline] == [row["id"] for row in sleep]

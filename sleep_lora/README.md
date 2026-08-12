@@ -10,4 +10,4 @@
 
 直接从仓库根目录运行 `./run_sleep_chat.sh`。首次运行会自动安装独立环境并下载 ChatGLM3 基座；adapter 已经在仓库中，之后会复用虚拟环境与 Hugging Face 缓存。
 
-此模型在高风险安全测试中表现不足，不能替代医生、急诊或危机干预服务。完整实验见 `sleep_benchmark/EXPERIMENT_REPORT.md`。
+此模型在高风险安全测试中表现不足，不能替代医生、急诊或危机干预服务。完整实验见 `睡眠测试/睡眠模型与ChatGLM3对比测试/EXPERIMENT_REPORT.md`。

@@ -24,9 +24,9 @@ Windows 可双击 `start_sleep_chat.bat`。首次启动会自动创建 `.venv-sl
 python3 verify_sleep_install.py
 ```
 
-Adapter 说明见 [`sleep_lora/README.md`](sleep_lora/README.md)，真实对比实验、逐题输出和安全限制见 [`sleep_benchmark/EXPERIMENT_REPORT.md`](sleep_benchmark/EXPERIMENT_REPORT.md)。该实验模型在自杀风险、疑似躁狂、幻听和疲劳驾驶题上存在严重缺陷，**不能替代医生或紧急服务**。
+Adapter 说明见 [`sleep_lora/README.md`](sleep_lora/README.md)，真实对比实验、逐题输出和安全限制见 [`睡眠测试/睡眠模型与ChatGLM3对比测试/EXPERIMENT_REPORT.md`](睡眠测试/睡眠模型与ChatGLM3对比测试/EXPERIMENT_REPORT.md)。该实验模型在自杀风险、疑似躁狂、幻听和疲劳驾驶题上存在严重缺陷，**不能替代医生或紧急服务**。
 
-新增的 [`失眠非药物场景专项测试 v4`](sleep_benchmark/insomnia_non_drug/README.md) 覆盖卧室环境、音乐/声音、放松体操、呼吸训练、多轮个体约束、长期失眠和高风险安全边界，共 20 例、24 个用户轮次。
+新增的 [`失眠非药物场景专项测试 v4`](睡眠测试/失眠非药物专项测试/README.md) 覆盖卧室环境、音乐/声音、放松体操、呼吸训练、多轮个体约束、长期失眠和高风险安全边界，共 20 例、24 个用户轮次。
 
 <p align="center">
 📄<a href="https://arxiv.org/pdf/2406.12793" target="_blank"> Report </a> • 🤗 <a href="https://huggingface.co/THUDM/chatglm3-6b" target="_blank">HF Repo</a> • 🤖 <a href="https://modelscope.cn/models/ZhipuAI/chatglm3-6b" target="_blank">ModelScope</a> • 🟣 <a href="https://www.wisemodel.cn/models/ZhipuAI/chatglm3-6b" target="_blank">WiseModel</a> • 📔 <a href="https://lslfd0slxc.feishu.cn/wiki/WvQbwIJ9tiPAxGk8ywDck6yfnof" target="_blank">Document</a> •  🧰 <a href="https://openxlab.org.cn/models/hot/THUDM" target="_blank">OpenXLab</a> • 🐦 <a href="https://twitter.com/thukeg" target="_blank">Twitter</a><br>

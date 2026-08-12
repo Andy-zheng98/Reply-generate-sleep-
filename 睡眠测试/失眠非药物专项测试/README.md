@@ -19,7 +19,7 @@
 
 ```bash
 !git clone --depth 1 https://github.com/Andy-zheng98/Reply-generate-sleep-.git
-!python Reply-generate-sleep-/sleep_benchmark/insomnia_non_drug/scripts/run_colab_v4.py
+!python Reply-generate-sleep-/睡眠测试/失眠非药物专项测试/scripts/run_colab_v4.py
 ```
 
 脚本会使用仓库内的 adapter，下载原始 `zai-org/chatglm3-6b` 基座，校验 adapter SHA-256，按固定生成参数运行，并把逐题回答、延迟、tokens/s、评分和运行元数据打包到：

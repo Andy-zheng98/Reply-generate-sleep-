@@ -79,7 +79,7 @@ GitHub 仓库本身确实没有可加载的 adapter：审计未发现 `adapter_m
 
 `./run_sleep_chat.sh`
 
-以下评分命令需先进入实验目录：`cd sleep_benchmark`。
+以下评分命令需先进入实验目录：`cd "睡眠测试/睡眠模型与ChatGLM3对比测试"`。
 
 训练入口：
 

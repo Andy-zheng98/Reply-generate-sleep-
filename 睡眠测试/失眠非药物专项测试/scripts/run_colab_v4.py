@@ -16,7 +16,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
-SUITE = ROOT / "sleep_benchmark" / "insomnia_non_drug"
+SUITE = ROOT / "睡眠测试" / "失眠非药物专项测试"
 BENCHMARK_PATH = SUITE / "benchmark" / "benchmark_v4.jsonl"
 RESULTS_DIR = SUITE / "results"
 RAW_PATH = RESULTS_DIR / "sleep_lora_raw_v4.jsonl"
