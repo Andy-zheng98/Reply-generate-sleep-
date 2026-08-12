@@ -4,14 +4,14 @@ on:
   push:
     paths:
       - "sleep_lora/**"
-      - "sleep_benchmark/**"
+      - "睡眠测试/**"
       - "sleep_chat.py"
       - "verify_sleep_install.py"
       - ".github/workflows/sleep-bundle-smoke.yml"
   pull_request:
     paths:
       - "sleep_lora/**"
-      - "sleep_benchmark/**"
+      - "睡眠测试/**"
       - "sleep_chat.py"
       - "verify_sleep_install.py"
 
