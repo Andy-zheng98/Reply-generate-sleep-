@@ -44,7 +44,9 @@ def same_json_value(left: object, right: object) -> bool:
     if isinstance(left, bool) or isinstance(right, bool):
         return left is right
     if isinstance(left, (int, float)) and isinstance(right, (int, float)):
-        return math.isclose(float(left), float(right), rel_tol=1e-9, abs_tol=1e-9)
+        # Generated summaries are rounded to 3–4 decimals; allow only half of
+        # the least-significant reported decimal for platform float variance.
+        return math.isclose(float(left), float(right), rel_tol=0.0, abs_tol=5e-4)
     if isinstance(left, dict) and isinstance(right, dict):
         return left.keys() == right.keys() and all(same_json_value(left[key], right[key]) for key in left)
     if isinstance(left, list) and isinstance(right, list):
