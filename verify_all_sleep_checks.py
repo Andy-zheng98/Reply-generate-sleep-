@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import py_compile
 import subprocess
 import sys
@@ -31,11 +32,28 @@ def same_file(generated: Path, tracked: Path) -> None:
     if generated.suffix == ".json" and tracked.suffix == ".json":
         generated_value = json.loads(generated.read_text(encoding="utf-8"))
         tracked_value = json.loads(tracked.read_text(encoding="utf-8"))
-        if generated_value != tracked_value:
+        if not same_json_value(generated_value, tracked_value):
             raise AssertionError(f"Reproduced JSON differs from tracked artifact: {tracked.relative_to(ROOT)}")
         return
     if generated.read_bytes() != tracked.read_bytes():
         raise AssertionError(f"Reproduced file differs from tracked artifact: {tracked.relative_to(ROOT)}")
+
+
+def same_json_value(left: object, right: object) -> bool:
+    """Compare JSON semantically across Python/OS float and set-order variations."""
+    if isinstance(left, bool) or isinstance(right, bool):
+        return left is right
+    if isinstance(left, (int, float)) and isinstance(right, (int, float)):
+        return math.isclose(float(left), float(right), rel_tol=1e-9, abs_tol=1e-9)
+    if isinstance(left, dict) and isinstance(right, dict):
+        return left.keys() == right.keys() and all(same_json_value(left[key], right[key]) for key in left)
+    if isinstance(left, list) and isinstance(right, list):
+        if len(left) != len(right):
+            return False
+        if all(isinstance(item, (str, int, float, bool)) or item is None for item in left + right):
+            return sorted(left, key=repr) == sorted(right, key=repr)
+        return all(same_json_value(a, b) for a, b in zip(left, right))
+    return left == right
 
 
 def read_jsonl(path: Path) -> list[dict]:
