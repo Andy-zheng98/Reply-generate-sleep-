@@ -60,7 +60,6 @@ jobs:
 
           files = [
               Path("README.md"),
-              Path(".github/workflows/sleep-bundle-smoke.yml"),
               Path("睡眠测试/睡眠模型与ChatGLM3对比测试/EXPERIMENT_REPORT.md"),
               Path("睡眠测试/失眠非药物专项测试/README.md"),
               Path("睡眠测试/失眠非药物专项测试/scripts/run_colab_v4.py"),
@@ -94,7 +93,7 @@ jobs:
           Path("睡眠测试/README.md").write_text("\n".join(index_lines), encoding="utf-8")
 
           stale = []
-          for path in [Path("README.md"), Path(".github/workflows/sleep-bundle-smoke.yml"), Path("sleep_lora/README.md"), Path("verify_sleep_install.py"), *Path("睡眠测试").rglob("*")]:
+          for path in [Path("README.md"), Path("sleep_lora/README.md"), Path("verify_sleep_install.py"), *Path("睡眠测试").rglob("*")]:
               if not path.is_file() or path.suffix.lower() not in {".md", ".py", ".yml", ".yaml"}:
                   continue
               if "sleep_benchmark" in path.read_text(encoding="utf-8"):
@@ -118,7 +117,6 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git rm .github/workflows/reorganize-sleep-tests.yml
           git add -A
           git commit -m "Organize all sleep tests into two folders"
           git push origin HEAD:main
